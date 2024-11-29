@@ -42,6 +42,7 @@ onUnmounted(() => {
 </template>
 <style scoped>
 .card {
+  min-height: 200px;
   overflow: auto;
   border: none;
   background-image: repeating-linear-gradient(
