@@ -61,6 +61,7 @@ const handleClickSort = () => {
                 class="stop-list__button btn d-flex align-items-center p-0 px-2"
                 type="button"
                 data-test="sort-button"
+                sr-only="sort stops"
               >
                 <img
                   src="/icons/sort.svg"
@@ -68,6 +69,7 @@ const handleClickSort = () => {
                   width="16"
                   height="16"
                   class="d-inline-block"
+                  :class="{ 'd-inline-block--rotated': !modelValue }"
                 />
               </button>
             </th>
@@ -105,5 +107,12 @@ const handleClickSort = () => {
 .table {
   font-size: 12px;
   --bs-table-color: #33373c;
+}
+
+.d-inline-block {
+  transition: rotate 0.2s ease;
+  &--rotated {
+    rotate: 180deg;
+  }
 }
 </style>
