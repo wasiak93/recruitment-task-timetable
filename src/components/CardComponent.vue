@@ -46,35 +46,35 @@ onUnmounted(() => {
   border: none;
   background-image: repeating-linear-gradient(
       171deg,
-      #333333,
-      #333333 30px,
+      #9a9da4,
+      #9a9da4 30px,
       transparent 30px,
       transparent 44px,
-      #333333 44px
+      #9a9da4 44px
     ),
     repeating-linear-gradient(
       261deg,
-      #333333,
-      #333333 30px,
+      #9a9da4,
+      #9a9da4 30px,
       transparent 30px,
       transparent 44px,
-      #333333 44px
+      #9a9da4 44px
     ),
     repeating-linear-gradient(
       -9deg,
-      #333333,
-      #333333 30px,
+      #9a9da4,
+      #9a9da4 30px,
       transparent 30px,
       transparent 44px,
-      #333333 44px
+      #9a9da4 44px
     ),
     repeating-linear-gradient(
       81deg,
-      #333333,
-      #333333 30px,
+      #9a9da4,
+      #9a9da4 30px,
       transparent 30px,
       transparent 44px,
-      #333333 44px
+      #9a9da4 44px
     );
   background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
   background-position: 0 0, 0 0, 100% 0, 0 100%;
