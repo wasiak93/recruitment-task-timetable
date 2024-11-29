@@ -100,7 +100,8 @@ describe("StopsList.vue", () => {
       },
     });
 
-    await wrapper.find("[data-test='stop-button']").trigger("click");
+    const stop = wrapper.findAll("[data-test='stop-button']")[0];
+    await stop.trigger("click");
     expect(mockCommit).toHaveBeenCalledWith("SET_SELECTED_STOP", {
       stop: "A",
       order: 1,
@@ -117,7 +118,7 @@ describe("StopsList.vue", () => {
       },
     });
 
-    const stops = wrapper.findAll("tr td button");
+    const stops = wrapper.findAll("[data-test='stop-button']");
     expect(stops[0].text()).toBe("B");
     expect(stops[1].text()).toBe("A");
   });

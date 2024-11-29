@@ -49,7 +49,7 @@ describe("BusLinesTimeSchedule", () => {
 
     await wrapper.vm.$nextTick();
 
-    const times = wrapper.findAll("td");
+    const times = wrapper.findAll("[data-test='times']");
     expect(times.length).toBe(3);
     expect(times[0].text()).toBe("10:00");
     expect(times[1].text()).toBe("10:15");
@@ -96,7 +96,7 @@ describe("BusLinesTimeSchedule", () => {
 
     await wrapper.vm.$nextTick();
 
-    const times = wrapper.findAll("td");
+    const times = wrapper.findAll("[data-test='times']");
     expect(times.length).toBe(0);
   });
 
@@ -112,7 +112,7 @@ describe("BusLinesTimeSchedule", () => {
 
     await wrapper.vm.$nextTick();
 
-    const stopText = wrapper.find("p").text();
+    const stopText = wrapper.find("[data-test='selected-stop-name']").text();
     expect(stopText).toContain("Stop A");
   });
 });

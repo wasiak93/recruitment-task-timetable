@@ -3,7 +3,6 @@ import NavBar from "./NavBar.vue";
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { describe, it, expect, beforeEach } from "vitest";
 
-
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -24,7 +23,6 @@ const router = createRouter({
 
 describe("NavBar", () => {
   beforeEach(async () => {
-
     router.push("/");
     await router.isReady();
   });
@@ -36,8 +34,8 @@ describe("NavBar", () => {
       },
     });
 
-    const busLinesLink = wrapper.find('a[href="/"]');
-    const stopsLink = wrapper.find('a[href="/stops"]');
+    const busLinesLink = wrapper.find("[data-test='link-bus-lines']");
+    const stopsLink = wrapper.find("[data-test='link-stops']");
 
     expect(busLinesLink.exists()).toBe(true);
     expect(busLinesLink.text()).toBe("Bus Lines");
@@ -56,8 +54,8 @@ describe("NavBar", () => {
     await router.push("/stops");
     await wrapper.vm.$nextTick();
 
-    const stopsLink = wrapper.find('a[href="/stops"]');
-    const busLinesLink = wrapper.find('a[href="/"]');
+    const stopsLink = wrapper.find("[data-test='link-stops']");
+    const busLinesLink = wrapper.find("[data-test='link-bus-lines']");
 
     expect(stopsLink.classes()).toContain("active-tab");
     expect(busLinesLink.classes()).not.toContain("active-tab");
@@ -70,7 +68,7 @@ describe("NavBar", () => {
       },
     });
 
-    const stopsLink = wrapper.find('a[href="/stops"]');
+    const stopsLink = wrapper.find("[data-test='link-stops']");
     await stopsLink.trigger("click");
     await wrapper.vm.$nextTick();
 

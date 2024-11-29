@@ -3,7 +3,12 @@
     <div class="container-fluid px-4">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <router-link class="nav-link p-4" to="/" active-class="active-tab">
+          <router-link
+            class="nav-link p-4"
+            to="/"
+            active-class="active-tab"
+            data-test="link-bus-lines"
+          >
             Bus Lines
           </router-link>
         </li>
@@ -12,6 +17,7 @@
             class="nav-link p-4"
             to="/stops"
             active-class="active-tab"
+            data-test="link-stops"
           >
             Stops
           </router-link>

@@ -24,7 +24,9 @@ const selectedLine = computed(
     v-if="selectedLine && Object.keys(selectedStop).length !== 0"
     class="bg-white rounded py-3"
   >
-    <p class="py-3 px-4 m-0 fw-bold title">Bus Stop: {{ selectedStop.stop }}</p>
+    <p class="py-3 px-4 m-0 fw-bold title" data-test="selected-stop-name">
+      Bus Stop: {{ selectedStop.stop }}
+    </p>
     <div class="table-responsive">
       <table class="table m-0">
         <thead>
@@ -36,7 +38,7 @@ const selectedLine = computed(
         </thead>
         <tbody>
           <tr v-for="(time, index) in times" :key="index">
-            <td class="py-3 px-4">
+            <td class="py-3 px-4" data-test="times">
               {{ time }}
             </td>
           </tr>

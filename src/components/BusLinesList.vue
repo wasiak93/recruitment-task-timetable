@@ -29,6 +29,7 @@ const emit = defineEmits(["selected-line"]);
         class="btn btn-primary my-1 me-1"
         :class="{ 'btn-dark': selectedLine === line }"
         @click="selectLine(line)"
+        data-test="line-button"
       >
         {{ line }}
       </button>

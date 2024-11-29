@@ -25,6 +25,7 @@ defineEmits<{
       "
       @focus="isFocused = true"
       @blur="isFocused = false"
+      data-test="filter-input"
     />
     <span v-if="isFocused" class="search__input-absolute-element px-1"
       >Search</span
@@ -36,6 +37,7 @@ defineEmits<{
         width="16"
         height="16"
         class="d-inline-block"
+        data-test="search-img"
       />
     </span>
   </div>

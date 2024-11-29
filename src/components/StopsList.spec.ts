@@ -35,7 +35,9 @@ describe("StopsList.vue", () => {
       },
     });
 
-    expect(wrapper.find("th").text()).toContain("Bus Stops");
+    expect(wrapper.find("[data-test='header-cell']").text()).toContain(
+      "Bus Stops"
+    );
   });
 
   it("renders the stops filtered by searchQuery", () => {
@@ -48,7 +50,7 @@ describe("StopsList.vue", () => {
       },
     });
 
-    const rows = wrapper.findAll("tbody tr");
+    const rows = wrapper.findAll("[data-test='row-cell-with-stop']");
     expect(rows).toHaveLength(1);
     expect(rows[0].text()).toContain("Alpha");
   });
@@ -63,7 +65,7 @@ describe("StopsList.vue", () => {
       },
     });
 
-    const rows = wrapper.findAll("tbody tr");
+    const rows = wrapper.findAll("[data-test='row-cell-with-stop']");
     expect(rows[0].text()).toContain("Alpha");
     expect(rows[1].text()).toContain("Beta");
     expect(rows[2].text()).toContain("Gamma");
@@ -79,10 +81,10 @@ describe("StopsList.vue", () => {
       },
     });
 
-    const sortButton = wrapper.find(".stop-list__button");
+    const sortButton = wrapper.find("[data-test='sort-button']");
     await sortButton.trigger("click");
 
-    const rows = wrapper.findAll("tbody tr");
+    const rows = wrapper.findAll("[data-test='row-cell-with-stop']");
     expect(rows[0].text()).toContain("Gamma");
     expect(rows[1].text()).toContain("Beta");
     expect(rows[2].text()).toContain("Alpha");
@@ -98,7 +100,7 @@ describe("StopsList.vue", () => {
       },
     });
 
-    const message = wrapper.find("tbody tr td.text-muted");
+    const message = wrapper.find("[data-test='row-cell-no-stops']");
     expect(message.exists()).toBe(true);
     expect(message.text()).toBe("No stops found.");
   });

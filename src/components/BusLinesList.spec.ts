@@ -62,25 +62,26 @@ describe("BusLinesList.vue", () => {
   });
 
   it("renders buttons for each bus line", () => {
-    const buttons = wrapper.findAll("button");
+    const buttons = wrapper.findAll("[data-test='line-button']");
     expect(buttons.length).toBe(2);
   });
 
   it("applies correct class to selected line button", async () => {
-    await wrapper.find("button").trigger("click");
+    const button = wrapper.findAll("[data-test='line-button']")[0];
+    await button.trigger("click");
 
-    const button = wrapper.find("button.btn-dark");
-    expect(button.exists()).toBe(true);
+    expect(button.classes()).toContain("btn-dark");
   });
 
   it("emits selected-line event when button is clicked", async () => {
-    await wrapper.find("button").trigger("click");
+    const button = wrapper.findAll("[data-test='line-button']")[0];
+    await button.trigger("click");
 
     expect(wrapper.emitted("selected-line")).toBeTruthy();
   });
 
   it("commits mutations on button click", async () => {
-    const button = wrapper.find("button");
+    const button = wrapper.findAll("[data-test='line-button']")[0];
 
     await button.trigger("click");
 

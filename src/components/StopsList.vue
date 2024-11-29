@@ -45,12 +45,17 @@ const handleClickSort = (): void => {
     <table class="table">
       <thead>
         <tr>
-          <th scope="col" class="d-flex align-items-center p-3 px-4">
+          <th
+            scope="col"
+            class="d-flex align-items-center p-3 px-4"
+            data-test="header-cell"
+          >
             <span class="fw-normal table-head__text fw-bold">Bus Stops</span>
             <button
               @click="handleClickSort"
               class="stop-list__button btn d-flex align-items-center p-0 px-2"
               type="button"
+              data-test="sort-button"
             >
               <img
                 src="/icons/sort.svg"
@@ -64,11 +69,21 @@ const handleClickSort = (): void => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(stop, index) in filteredAndSortedStops" :key="index">
+        <tr
+          v-for="(stop, index) in filteredAndSortedStops"
+          :key="index"
+          data-test="row-cell-with-stop"
+        >
           <td class="p-3 px-4">{{ stop.stop ?? "" }}</td>
         </tr>
         <tr v-if="!filteredAndSortedStops.length">
-          <td colspan="1" class="text-center text-muted">No stops found.</td>
+          <td
+            colspan="1"
+            class="text-center text-muted"
+            data-test="row-cell-no-stops"
+          >
+            No stops found.
+          </td>
         </tr>
       </tbody>
     </table>

@@ -21,7 +21,7 @@ describe("StopsSearch.vue", () => {
       },
     });
 
-    const input = wrapper.find("input");
+    const input = wrapper.find("[data-test='filter-input']");
     await input.setValue("New Value");
 
     expect(wrapper.emitted()["update:modelValue"]).toBeTruthy();
@@ -35,7 +35,7 @@ describe("StopsSearch.vue", () => {
       },
     });
 
-    const input = wrapper.find("input");
+    const input = wrapper.find("[data-test='filter-input']");
     expect(wrapper.find(".search--border").exists()).toBe(false);
 
     await input.trigger("focus");
@@ -56,7 +56,7 @@ describe("StopsSearch.vue", () => {
       false
     );
 
-    const input = wrapper.find("input");
+    const input = wrapper.find("[data-test='filter-input']");
     await input.trigger("focus");
     expect(wrapper.find(".search__input-absolute-element").exists()).toBe(true);
 
@@ -73,13 +73,13 @@ describe("StopsSearch.vue", () => {
       },
     });
 
-    expect(wrapper.find("img[alt='Search Icon']").exists()).toBe(true);
+    expect(wrapper.find("[data-test='search-img']").exists()).toBe(true);
 
     const input = wrapper.find("input");
     await input.trigger("focus");
-    expect(wrapper.find("img[alt='Search Icon']").exists()).toBe(false);
+    expect(wrapper.find("[data-test='search-img']").exists()).toBe(false);
 
     await input.trigger("blur");
-    expect(wrapper.find("img[alt='Search Icon']").exists()).toBe(true);
+    expect(wrapper.find("[data-test='search-img']").exists()).toBe(true);
   });
 });
